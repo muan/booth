@@ -6,6 +6,4 @@ A photo booth. I made this because macOS Photo Booth wouldn't reveal external vi
 
 This works pertty well in Chrome, and is definitely quite buggy in Firefox and Safari for reasons I don't care to dig into. ;)
 
-Right click on the images to save your shots.
-
 The webcam used in the screenshot above was Fujifilm X100T.
