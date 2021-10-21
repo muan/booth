@@ -1,0 +1,41 @@
+body {
+  text-align: center;
+  padding: 1em;
+}
+
+button, select {
+  padding: .5em 1em;
+}
+
+video {
+  max-width: 50vw;
+  margin: 2em auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.flipped {
+  transform: scale(-1, 1)
+}
+
+ul {
+  list-style: none;
+  max-width: 90vw;
+  margin: 2em auto;
+  padding: 0;
+  display: inline-grid;
+  grid-template: auto / repeat(auto-fill, 10em);
+  grid-gap: 1em;
+}
+
+img {
+  border-radius: 6px;
+  width: 100%;
+  transition: transform .1s;
+}
+
+img:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  border-radius: 3px;
+  transform: scale(2, 2);
+}
