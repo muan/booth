@@ -50,12 +50,13 @@ function snap() {
     context.translate(d.width, 0)
     context.scale(-1, 1)
   }
+  context.fillStyle = '#000000'
+  context.fillRect(0, 0, d.width, d.height)
   context.drawImage(video, 0, 0)
-  const snapped = document.createElement('img')
-  snapped.src = canvas.toDataURL("image/png")
-  snapped.alt = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+  const dataURL = canvas.toDataURL("image/png")
+  const time = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
   const li = document.createElement('li')
-  li.append(snapped)
+  li.innerHTML = `<a href="${canvas.toDataURL('image/png')}" download="${time}.png"><img alt="${time}" src="${dataURL}"></a>`
   list.prepend(li)
   canvas.remove()
 }
