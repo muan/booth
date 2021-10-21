@@ -12,12 +12,14 @@ init()
 async function init() {
   let options = ``
 
+  // Get permissions before listing
+  await setWebcam()
+
   for (const input of await navigator.mediaDevices.enumerateDevices()) {
     if (input.kind !== 'videoinput') continue
     options += `<option value="${input.deviceId}">${input.label}</option>`
   }
   device.innerHTML = options
-  setWebcam()
 }
 
 async function setWebcam() {
