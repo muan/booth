@@ -26,16 +26,19 @@ ul {
   display: inline-grid;
   grid-template: auto / repeat(auto-fill, 10em);
   grid-gap: 1em;
+  align-items: center;
 }
 
 img {
   border-radius: 6px;
   width: 100%;
   transition: transform .1s;
+  position: relative;
 }
 
 img:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  z-index: 1;
   border-radius: 3px;
   transform: scale(2, 2);
 }
