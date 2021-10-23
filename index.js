@@ -3,8 +3,8 @@ const device = document.querySelector('#device')
 const ratio = document.querySelector('#ratio')
 const list = document.querySelector('#list')
 const dimensions = {
-  '16:9': {width: 800, height: 450},
-  '3:2': {width: 600, height: 400}
+  '16:9': {width: 1024, height: 576},
+  '3:2': {width: 1020, height: 680}
 }
 
 init()
