@@ -6,7 +6,12 @@ A photo booth. I made this because macOS Photo Booth wouldn't reveal external vi
 
 This works pertty well in Chrome, and is definitely quite buggy in Firefox and Safari for reasons I don't care to dig into. ;)
 
-- Firefox: unable to obtain the correct ratio.
-- Safari: unable to obtain all the available video inputs.
+Firefox
+  - unable to obtain the correct ratio.
+  - unable to connect to sources occasionally.
+
+Safari
+  - unable to obtain all the available video inputs.
+  - need to command click to open dataURL in a new tab.
 
 The webcam used in the screenshot above was Fujifilm X100T.

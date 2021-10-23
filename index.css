@@ -1,7 +1,10 @@
 body {
-  font-family: sans-serif;
   text-align: center;
   padding: 1em;
+}
+
+body, button, select {
+  font-family: monospace;
 }
 
 button, select {
@@ -25,7 +28,7 @@ ul {
   margin: 2em auto;
   padding: 0;
   display: inline-grid;
-  grid-template: auto / repeat(auto-fill, 10em);
+  grid-template: auto / repeat(auto-fill, 14em);
   grid-gap: 1em;
   align-items: center;
 }
