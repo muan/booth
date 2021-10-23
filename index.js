@@ -53,10 +53,18 @@ function snap() {
   context.fillStyle = '#000000'
   context.fillRect(0, 0, d.width, d.height)
   context.drawImage(video, 0, 0)
-  const dataURL = canvas.toDataURL("image/png")
-  const time = `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+  const dataURL = canvas.toDataURL('image/png')
+  const date = new Date()
+  const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
   const li = document.createElement('li')
-  li.innerHTML = `<a href="${canvas.toDataURL('image/png')}" download="${time}.png"><img alt="${time}" src="${dataURL}"></a>`
+  const hasDialog = !!window.HTMLDialogElement
+  const previewHTML = hasDialog ? `<button data-dialog="i${date.getTime()}"><img alt="${time}" src="${dataURL}" class="thumbnail"></button>
+    <dialog id="i${date.getTime()}"><img alt="${time}" src="${dataURL}"></dialog>` : 
+    `<a href="${dataURL}" target="_blank"><img alt="${time}" src="${dataURL}" class="thumbnail"></a>`
+  li.innerHTML = `
+    ${previewHTML}<br>
+    <a href="${dataURL}" class="dl-link" download="Photo ${date.toISOString().split('T')[0]} ${date.toLocaleTimeString().replace(/:/g, '.')}.png">save</a>
+    <button class="js-discard">discard</button>`
   list.prepend(li)
   canvas.remove()
 }
@@ -68,6 +76,16 @@ document.querySelector('#snap').addEventListener('click', snap)
 
 document.querySelector('#flip').addEventListener('click', function() {
   video.classList.toggle('flipped', !video.classList.contains('flipped'))
+})
+
+document.addEventListener('click', function(event) {
+  const dialogID = event.target.closest('button')?.getAttribute('data-dialog')
+  if (dialogID) document.getElementById(dialogID).showModal()
+  if (event.target.tagName === 'DIALOG') event.target.close()
+  if (event.target.classList.contains('js-discard')) {
+    if(!confirm('are you sure?')) return
+    event.target.closest('li').remove()
+  }
 })
 
 document.querySelector('#snap3').addEventListener('click', function(e) {
