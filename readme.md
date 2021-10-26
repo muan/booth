@@ -13,3 +13,5 @@ Firefox
 Safari
   - unable to obtain all the available video inputs.
   - need to command click to open dataURL in a new tab.
+
+In Chrome, use the left and right arrow to navigate between shots when one of them is expanded.
