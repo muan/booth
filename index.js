@@ -115,3 +115,25 @@ document.querySelector('#clearinterval').addEventListener('click', function() {
   document.querySelector('#snapinterval').disabled = false
   document.querySelector('#clearinterval').hidden = true
 })
+
+document.addEventListener('keydown', function(event) {
+  const openDialog = document.querySelector('dialog[open]')
+  if (!openDialog) return
+  let toOpen = null
+  if (event.key === 'ArrowLeft') {
+    toOpen = openDialog.closest('li').previousElementSibling?.querySelector('dialog')
+  } else if (event.key === 'ArrowRight') {
+    toOpen = openDialog.closest('li').nextElementSibling?.querySelector('dialog')
+  }
+
+  if (toOpen) {
+    openDialog.close()
+    toOpen.showModal()
+  }
+})
+
+document.addEventListener('close', function(event) {
+  if (event.target.tagName !== 'DIALOG') return
+  const button = document.querySelector(`[data-dialog=${event.target.id}]`)
+  button.focus()
+}, {capture: true})
