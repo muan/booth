@@ -1,4 +1,4 @@
-<img width="1002" alt="" src="https://user-images.githubusercontent.com/1153134/138208501-6528cb5f-b9b1-405e-b585-933302d6edf3.png">
+<img width="1171" alt="" src="https://user-images.githubusercontent.com/1153134/138973475-e33ae27f-89f2-4a33-9052-ad2119d16177.png">
 
 # Booth
 
@@ -13,5 +13,3 @@ Firefox
 Safari
   - unable to obtain all the available video inputs.
   - need to command click to open dataURL in a new tab.
-
-The webcam used in the screenshot above was Fujifilm X100T.
