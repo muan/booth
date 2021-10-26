@@ -83,7 +83,6 @@ document.addEventListener('click', function(event) {
   if (dialogID) document.getElementById(dialogID).showModal()
   if (event.target.tagName === 'DIALOG') event.target.close()
   if (event.target.classList.contains('js-discard')) {
-    if(!confirm('are you sure?')) return
     event.target.closest('li').remove()
   }
 })
@@ -100,4 +99,19 @@ document.querySelector('#snap3').addEventListener('click', function(e) {
     button.disabled = false
   }, 3000)
   setTimeout(snap, 3000)
+})
+
+let snapOnInterval = null
+
+document.querySelector('#snapinterval').addEventListener('click', function() {
+  snap()
+  snapOnInterval = setInterval(snap, document.querySelector('#intervalms').value)
+  document.querySelector('#snapinterval').disabled = true
+  document.querySelector('#clearinterval').hidden = false
+})
+
+document.querySelector('#clearinterval').addEventListener('click', function() {
+  clearInterval(snapOnInterval)
+  document.querySelector('#snapinterval').disabled = false
+  document.querySelector('#clearinterval').hidden = true
 })

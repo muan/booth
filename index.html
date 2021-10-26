@@ -8,9 +8,14 @@
   <select id="device"></select>
   <select id="ratio"><option selected>16:9</option><option>3:2</option></select>
   <button id="flip">mirror</button>
-  |
+  <p>
   <button id="snap">snap</button>
   <button id="snap3">snap in 3 seconds <span id="count"></span></button>
+  |
+  <button id="snapinterval">snap on interval</button>
+  <select id="intervalms"><option value="1000">1 second</option><option value="60000">1 minute</option><option value="180000">3 minutes</option></select>
+  <button id="clearinterval" hidden>stop</button>
+  </p>
   <video id="video"></video>
   <ul id="list" aria-label="snaps"></ul>
 </main>
